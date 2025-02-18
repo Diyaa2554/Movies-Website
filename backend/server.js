@@ -1,13 +1,13 @@
-import express from "express"
-import core from "core"
-import review from "./api/review.route.js"
-const app = express
-app.use(core())
-app.use(express.json())
+import express from "express";
+import reviews from "./api/reviews.route.js";
 
-app.use("/apo/v1/reviews", reviews)
+const app = express();
 
-app.use("*", (req, res) =>
-res.status(404).json({error: "not found"}))
+app.use(express.json());
+app.use("/api/v1/reviews", reviews);
 
-export default app
+app.use("*", (req, res) => {
+    res.status(404).json({ error: "Not found" });
+});
+
+export default app;
