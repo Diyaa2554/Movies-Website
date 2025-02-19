@@ -20,7 +20,6 @@ async function fetchMovies(url) {
         console.error("Error fetching movies:", error);
     }
 }
-
 function returnMovies(url){
     fetch(url).then(res => res.json())
     .then(function(data) {
@@ -44,7 +43,7 @@ function returnMovies(url){
 
             const center = document.createElement('center');
 
-            title.innerHTML = `${element.title}`;
+            title.innerHTML = `${element.title}<br> <a href="movie.html?id=${element.id}&title=${element.title}">reviews</a>`;
             image.src = IMG_PATH + element.poster_path;
 
             center.appendChild(image);
